@@ -1,0 +1,53 @@
+<section id="equipo" class="contact-area pt-120 pb-120">
+    <div class="container">
+         <div class="row">
+            <div class="col-lg-12">
+                <div class="contact-wrapper-form pt-115  wow fadeInUpBig" data-wow-duration="1s" data-wow-delay="0.5s">
+                    <h1>Sección de Partidos</h1>
+                    
+                    <form [formGroup]="form" id="equipo-form" action="assets/contact.php" >
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="contact-form mt-45">
+                                  <label>Equipo Local</label>
+                                    <select formControlName="equipoLocal" name="equipoLocal">
+                                      <option value="{{item.nombre}}" *ngFor="let item of listTeams">{{item.nombre}} -- {{item.nacionalidad}}</option>
+                                      
+                                    </select>
+                                </div> 
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="contact-form mt-45">
+                                      <label>Equipo Visitante</label>
+                                        <select formControlName="equipoVisitante" name="equipoVisitante">
+                                          <option value="{{item.nombre}}" *ngFor="let item of listTeams">{{item.nombre}} -- {{item.nacionalidad}}</option>
+                                          
+                                        </select>
+                                    </div> 
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="contact-form mt-45">
+                                      <label>Día Encuentro</label>
+                                      <input type="date" formControlName="dia" name="dia">
+                                    </div> 
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="contact-form mt-45">
+                                      <label>Hora Encuentro</label>
+                                      <input type="time" formControlName="hora" name="hora">
+                                </div> 
+                                </div>
+
+                            <div class="col-md-12">
+                                <div class="contact-form mt-45">
+                                    <button (click)="guardar()" type="submit" class="main-btn">Registrar Equipo</button>
+                                </div> <!-- contact-form -->
+                            </div>
+                        </div> <!-- row -->
+                    </form>
+                </div> <!-- contact wrapper form -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+  </section>

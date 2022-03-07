@@ -1,0 +1,77 @@
+<section id="jugador" class="contact-area pt-120 pb-120">
+  <div class="container">
+       <div class="row">
+          <div class="col-lg-12">
+              <div class="contact-wrapper-form pt-115  wow fadeInUpBig" data-wow-duration="1s" data-wow-delay="0.5s">
+                  <h4 class="contact-title pb-10">Sección de Jugadores</h4>
+                  
+                  <form [formGroup]="form" id="jugador-form" action="assets/contact.php" >
+                      <div class="row">
+                          <div class="col-md-4">
+                              <div class="contact-form mt-45">
+                                  <label>Nombre</label>
+                                  <input type="text" formControlName="nombre" name="nombre"  placeholder="Ingrese el nombre">
+                              </div> 
+                          </div>
+
+                            <div class="col-md-4">
+                              <div class="contact-form mt-45">
+                                  <label>Fecha Nacimiento</label>
+                                  
+                                  <input type="date" formControlName="edad" name="edad">
+                              </div> 
+                            </div>
+
+                          <div class="col-md-3">
+                            <div class="contact-form mt-45">
+                                <label>Pie dominante</label>
+                                <select name="pieDom"  formControlName="pieDom">
+                                  <option value="Derecho">Derecho </option>
+                                  <option value="Izquierdo">Izquierdo</option>
+                                </select>
+                            </div> 
+                            </div>
+
+                            <div class="col-md-4">
+                              <div class="contact-form mt-45">
+                                  <label>Posicion</label>
+                                  <select formControlName="posicion" name="posicion">
+                                    
+                                    <option value="{{item.nombre}}" *ngFor="let item of listPosiciones">{{item.nombre}}</option>
+                                    
+                                  </select>
+                             </div> 
+                             </div>
+
+                            
+
+                            <div class="col-md-6">
+                              <div class="contact-form mt-45">
+                                <label>Equipo Actual</label>
+                                  <select formControlName="equipoActual" name="equipoActual">
+                                    <option value="{{item.nombre}}  {{item._id}}" *ngFor="let item of listTeams">{{item.nombre}},{{item._id}}</option>
+                                    
+                                  </select>
+                              </div> 
+                              </div>
+
+                              <div class="col-md-4">
+                                <div class="contact-form mt-45">
+                                    <label>Nacionalidad</label>
+                                    <input type="text" formControlName="nacionalidad" name="nacionalidad" placeholder="Ingrese nacionalidad">
+                                </div> 
+                                </div>
+                          
+
+                          <div class="col-md-12">
+                              <div class="contact-form mt-45">
+                                  <button (click)="guardar()" type="submit" class="main-btn">Registrar jugador</button>
+                              </div> <!-- contact-form -->
+                          </div>
+                      </div> <!-- row -->
+                  </form>
+              </div> <!-- contact wrapper form -->
+          </div>
+      </div> <!-- row -->
+  </div> <!-- container -->
+</section>

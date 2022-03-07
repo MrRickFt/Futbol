@@ -1,0 +1,101 @@
+<section id="equipo" class="contact-area pt-120 pb-120">
+    <div class="container">
+         <div class="row">
+            <div class="col-lg-12">
+                <div class="contact-wrapper-form pt-115  wow fadeInUpBig" data-wow-duration="1s" data-wow-delay="0.5s">
+                    <h1>Detalles de Partidos</h1>
+                    
+                    <form [formGroup]="form" id="equipo-form" action="assets/contact.php" >
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="contact-form mt-45">
+                                  <label>Id Partido</label>
+                                    <select formControlName="idPartido" name="idPartido">
+                                      <option value="{{item._id}}" *ngFor="let item of listPartido">{{item.equipoLocal}} Vs {{item.equipoVisitante}}
+                                           {{item.dia}}</option>
+                                      
+                                    </select>
+                                </div> 
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="contact-form mt-45">
+                                      <label>Resultado</label>
+                                        
+                                      <input type="text" formControlName="resultado" name="resultado" placeholder="ejemplo: 3-0">
+                                          
+                                        
+                                    </div> 
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="contact-form mt-45">
+                                      <label>Tiempo Extra</label>
+                                      <select formControlName="idPartido" name="idPartido">
+                                        <option value="Si">Si</option>
+                                        <option selected value="No">No</option>
+                                        
+                                      </select>
+                                    </div> 
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="contact-form ">
+                                      <label>Goles</label>
+                                      <textarea style="border: 1px solid black;" formControlName="detallesGoles" name="detallesGoles"  placeholder="Ejemplo: [1]:jugador - equipo - minuto"></textarea>
+                                </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="contact-form mt-45">
+                                      <label>Penaltis</label>
+                                      <select  formControlName="penaltis" name="penaltis">
+                                        <option value="Si">Si</option>
+                                        <option selected value="No">No</option>
+                                        
+                                      </select>
+                                </div> 
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="contact-form ">
+                                      <label>Tarjetas </label>
+                                      <textarea style="border: 1px solid black;" formControlName="tarjetas" name="tarjetas" placeholder="Ejemplo: [1]:Juan - Real Madrid - Amarilla - 60'"></textarea>
+                                </div>
+                                <div>
+                                <div class="col-md-6">
+                                    <div class="contact-form mt-10">
+                                      <label>Cambios Jugadores </label>
+                                      <textarea style="border: 1px solid black;" formControlName="cambiosJugadores" name="cambiosJugadores" placeholder="Ejemplo: [1]:Juan (sale) - Real Madrid - David(entra) - 60'"></textarea>
+                                </div>
+                            </div>
+
+                                <div class="col-md-6">
+                                    <div class="contact-form mt-45">
+                                      <label>Jugador Destacado</label>
+                                      <select formControlName="jugadorDestacado" name="jugadorDestacado">
+                                        <option value="{{item._id}} {{item.nombre}} {{item.equipoActual}}" *ngFor="let item of listJugadores">{{item.nombre}} --   {{item.equipoActual}}
+                                             </option>
+                                        
+                                      </select>
+                                    </div> 
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="contact-form mt-10">
+                                      <label>Jugada Var</label>
+                                      <textarea style="border: 1px solid black;" formControlName="jugadaVar" name="jugadaVar" placeholder="Ejemplo: [1]:Penalti - Real Madrid - 60' - Aprobada, [2]:Tiro Libre - Real Madrid - 60' - Denegada"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="contact-form mt-45">
+                                    <button (click)="guardar()" type="submit" class="main-btn">Registrar Detalles</button>
+                                </div> <!-- contact-form -->
+                            </div>
+                        </div>
+                        </div> <!-- row -->
+                        </div>
+                    </form>
+                </div> <!-- contact wrapper form -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+  </section>

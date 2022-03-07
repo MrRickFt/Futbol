@@ -1,0 +1,63 @@
+<h1 style="color: brown;">EDITAR EQUIPOS</h1>
+
+
+<input style="background-color: whitesmoke;" type="search" (keyup)="search($event)" 
+class="form-control" placeholder="Buscar por nombre">
+<br>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col" >Nombre</th>
+        <th scope="col">Liga</th>
+        <th scope="col">Fecha Fundación</th>
+        <th scope="col">Director Técnico</th>
+        <th scope="col">Nacionalidad</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listEquipo; let i = index">
+        <td scope="row" >
+          <span class="pointer" (click)="findById(item._id)" *ngIf="!item.status">{{ item.nombre }}</span> 
+          <input *ngIf="item.status" (keyup)="change(item,$event, i, 'nombre')" 
+          class="form-control" value="{{item.nombre}}">
+        </td>
+        <td>
+          <span class="pointer" (click)="findById(item._id)" *ngIf="!item.status"> {{ item.liga }}</span>
+          <input *ngIf="item.status" class="form-control" value="{{item.liga}}" 
+          (keyup)="change(item,$event, i, 'liga')">
+        </td>
+        <td>
+          <span class="pointer" (click)="findById(item._id)" *ngIf="!item.status"> {{ item.since }}</span>
+          <input *ngIf="item.status" class="form-control" value="{{item.since}}" 
+          (keyup)="change(item,$event, i, 'since')">
+        </td>
+        <td>
+            <span class="pointer" (click)="findById(item._id)" *ngIf="!item.status"> {{ item.dt }}</span>
+            <input *ngIf="item.status" class="form-control" value="{{item.dt}}" 
+            (keyup)="change(item,$event, i, 'dt')">
+        </td>
+        <td>
+            <span class="pointer" (click)="findById(item._id)" *ngIf="!item.status"> {{ item.nacionalidad }}</span>
+            <input *ngIf="item.status" class="form-control" value="{{item.nacionalidad}}" 
+            (keyup)="change(item,$event, i, 'nacionalidad')">
+        </td>
+        
+        <td>
+          <button class="btn btn-primary" (click)="edit(item, i)">
+            <span *ngIf="!item.status">
+              {{ item.textAction }}
+            </span>
+            <span *ngIf="item.status">
+              {{ item.textAction }}
+            </span>
+          </button> 
+        </td>
+        <td><button *ngIf="item.status" class="btn btn-danger" (click)="reset(i)">Canclelar</button> </td>
+        <td><button class="btn btn-danger" (click)="delete(item._id)">Eliminar</button> </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <router-outlet></router-outlet>
